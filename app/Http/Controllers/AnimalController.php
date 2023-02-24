@@ -83,4 +83,14 @@ class AnimalController extends Controller
 
         return redirect()->route('animals.edit', $animalId);
     }
+    public function delete($animalId)
+    {
+        $animal = Animal::findOrFail($animalId);
+
+        $animal->delete();
+
+        session()->flash('success_message', $animal->name . ' succesfully deleted');
+
+        return redirect()->route('owners.index');
+    }
 }

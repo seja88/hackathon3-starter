@@ -58,3 +58,6 @@ Route::post('/animal/form/insert', [AnimalController::class, 'insert'])->name('a
 Route::get('/animal/form/{animalId}/edit', [AnimalController::class, 'edit'])->name('animals.edit');
 // update
 Route::put('/animal/form/{animalId}/edit', [AnimalController::class, 'update'])->name('animals.update');
+
+//DELETE
+Route::delete('/animal/form/{animalId}/delete', [AnimalController::class, 'delete'])->name('animals.delete');
