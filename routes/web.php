@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AnimalController;
+use App\Http\Controllers\OwnerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+// Welcome Page with Search button
+Route::get('/', [OwnerController::class, 'index']);
+// SEARCH PAGE
+Route::get('/search', [OwnerController::class, 'search'])->name('owners.search');
+//detail page
+Route::get('/detail/{animalId}', [AnimalController::class, 'detail'])->name('animal.detail');
