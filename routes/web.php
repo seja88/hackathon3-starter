@@ -25,3 +25,16 @@ Route::get('/', [OwnerController::class, 'index']);
 Route::get('/search', [OwnerController::class, 'search'])->name('owners.search');
 //detail page
 Route::get('/detail/{animalId}', [AnimalController::class, 'detail'])->name('animal.detail');
+
+// CREATE and INSERT
+// Create
+Route::get('/form/create', [OwnerController::class, 'create'])->name("owners.create");
+// Insert
+Route::post('/form/insert', [OwnerController::class, 'insert'])->name('owners.insert');
+
+// EDIT and UPDATE
+
+// edit
+Route::get('/form/{ownerId}/edit', [OwnerController::class, 'edit'])->name('owners.edit');
+// update
+Route::put('/form/{ownerId}/edit', [OwnerController::class, 'update'])->name('owners.update');
