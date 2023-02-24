@@ -16,6 +16,10 @@ class OwnerController extends Controller
 
     public function search(Request $request)
     {
+        $this->validate($request, [
+            'search' => 'required|max:20'
+        ]);
+
         $surname = $request->input('search');
         // dd($surname);
         $owners = Owner::query()
@@ -86,5 +90,16 @@ class OwnerController extends Controller
         session()->flash('success_message', 'Customer successfully updated');
 
         return redirect()->route('owners.edit', $ownerId);
+    }
+
+    public function delete($ownerId)
+    {
+        $owner = Owner::findOrFail($ownerId);
+
+        $owner->delete();
+
+        session()->flash('success_message', $owner->name . ' succesfully deleted');
+
+        return redirect()->route('owners.index');
     }
 }
