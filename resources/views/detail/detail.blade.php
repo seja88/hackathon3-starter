@@ -1,6 +1,11 @@
 @include('common.html_start')
-
+@if (isset($animal->image->path))
+    
 <img src="/images/pets/{{$animal->image->path}}" alt="image">
+@else 
+<img src="/images/pets/random_dog.jpg" alt="image">
+@endif
+
 
 
 

@@ -58,7 +58,7 @@ class OwnerController extends Controller
         session()->flash('success_message', 'Customer successfully created');
 
 
-        return redirect()->route('owners.edit', $owner->id);
+        return redirect()->route('animals.create', $owner->id);
     }
 
     public function edit($ownerId)

@@ -24,6 +24,15 @@
 
 <button type="submit">{{ $owner->id ? 'Update' : 'Register' }}</button>
 
-
 </form>
+@if (isset($owner->id))
+<form action="{{route('owners.delete', $owner->id)}}" method="post">
+    @method('DELETE')
+    @csrf
+    <button type="submit">Delete</button>
+</form>
+@endif
+
+
+
 @include('common.html_end')

@@ -41,3 +41,20 @@ Route::put('/form/{ownerId}/edit', [OwnerController::class, 'update'])->name('ow
 
 //DELETE
 Route::delete('/form/{ownerID}/delete', [OwnerController::class, 'delete'])->name('owners.delete');
+
+
+// Animal Form
+
+//CREATE AND INSERT
+
+// create
+Route::get('/animal/form/{ownerId}/create', [AnimalController::class, 'create'])->name("animals.create");
+// Insert
+Route::post('/animal/form/insert', [AnimalController::class, 'insert'])->name('animals.insert');
+
+// EDIT and UPDATE
+
+// edit
+Route::get('/animal/form/{animalId}/edit', [AnimalController::class, 'edit'])->name('animals.edit');
+// update
+Route::put('/animal/form/{animalId}/edit', [AnimalController::class, 'update'])->name('animals.update');
